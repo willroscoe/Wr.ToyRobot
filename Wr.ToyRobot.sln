@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wr.ToyRobot.ConsoleApp", "Wr.ToyRobot.ConsoleApp\Wr.ToyRobot.ConsoleApp.csproj", "{9A8480E3-1BF6-484B-ADA8-E99706D5A3EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wr.ToyRobot.CoreLib", "Wr.ToyRobot.CoreLib\Wr.ToyRobot.CoreLib.csproj", "{381D19F0-8D27-4602-A5B6-1C107F1B3C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wr.ToyRobot.CoreLib.Tests", "Wr.ToyRobot.CoreLib.Tests\Wr.ToyRobot.CoreLib.Tests.csproj", "{4A68C927-8693-41B9-B41E-C4983589FB16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1A17DA4-5932-4764-BCAC-7E8F48361B67}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A8480E3-1BF6-484B-ADA8-E99706D5A3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8480E3-1BF6-484B-ADA8-E99706D5A3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8480E3-1BF6-484B-ADA8-E99706D5A3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8480E3-1BF6-484B-ADA8-E99706D5A3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381D19F0-8D27-4602-A5B6-1C107F1B3C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381D19F0-8D27-4602-A5B6-1C107F1B3C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381D19F0-8D27-4602-A5B6-1C107F1B3C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381D19F0-8D27-4602-A5B6-1C107F1B3C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A68C927-8693-41B9-B41E-C4983589FB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A68C927-8693-41B9-B41E-C4983589FB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A68C927-8693-41B9-B41E-C4983589FB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A68C927-8693-41B9-B41E-C4983589FB16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {814BA35A-C4CD-47F5-A586-B529D622A29B}
+	EndGlobalSection
+EndGlobal
