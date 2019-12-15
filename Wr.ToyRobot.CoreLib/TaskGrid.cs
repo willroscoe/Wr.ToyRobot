@@ -7,7 +7,7 @@ using Wr.ToyRobot.CoreLib.Models.GridItems;
 namespace Wr.ToyRobot.CoreLib
 {
     /// <summary>
-    /// The main task object
+    /// The main task object. Can't be inherited.
     /// </summary>
     public sealed class TaskGrid : ITaskGrid
     {
@@ -17,13 +17,13 @@ namespace Wr.ToyRobot.CoreLib
         public Coordinates GridSize { get; private set; }
 
         /// <summary>
-        /// List of grid items present on the grid
+        /// List of grid items present on the grid.
         /// </summary>
         public List<IGridItem> GridItems { get; private set; }
         
 
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="xSize"></param>
         /// <param name="ySize"></param>
@@ -34,7 +34,7 @@ namespace Wr.ToyRobot.CoreLib
         }
 
         /// <summary>
-        /// Accepts all commands for any grid item
+        /// Accepts all commands for any grid item.
         /// </summary>
         /// <param name="gridItemName">The unique name of the grid item</param>
         /// <param name="command">The command string</param>
@@ -49,9 +49,9 @@ namespace Wr.ToyRobot.CoreLib
                 return result;
             }
 
-            // Try and find the griditem by name
+            // Try and find the griditem by name.
             var foundGridItem = GetGridItem(gridItemName);
-            if (foundGridItem == null) // not found
+            if (foundGridItem == null) // Not found.
             {
                 result.Comment = $"Grid Item called: '{gridItemName}' does not exists.";
                 return result;
@@ -64,7 +64,7 @@ namespace Wr.ToyRobot.CoreLib
 
   
         /// <summary>
-        /// Add a newGridItem to the GridItems list, but making sure it doesn't exist yet
+        /// Add a newGridItem to the GridItems list, but making sure it doesn't exist yet.
         /// </summary>
         /// <param name="name">The name/identifier of the grid item</param>
         /// <param name="itemTypeName">The name of the item type, which corresponds to the GRID_ITEM_TYPE_NAME property i.e. Robot</param>
@@ -86,7 +86,7 @@ namespace Wr.ToyRobot.CoreLib
                 return result;
             }
 
-            // TODO: Use reflection to instantiate the required GridItem type 
+            // TODO: Use reflection to instantiate the required GridItem type.
             switch (itemTypeName)
             {
                 case "Robot":
@@ -103,7 +103,7 @@ namespace Wr.ToyRobot.CoreLib
         }
 
         /// <summary>
-        /// Logic to determine if the passed-in Coordinates lie within the bounds of the grid
+        /// Logic to determine if the passed-in Coordinates lie within the bounds of the grid.
         /// </summary>
         /// <param name="coordinates"></param>
         /// <returns>bool</returns>
@@ -123,7 +123,7 @@ namespace Wr.ToyRobot.CoreLib
 
         
         /// <summary>
-        /// Get a grid item with the name
+        /// Get a grid item with the name.
         /// </summary>
         /// <param name="name"></param>
         /// <returns>The found Grid Item or null</returns>

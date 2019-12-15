@@ -6,17 +6,17 @@ using System.Text.RegularExpressions;
 namespace Wr.ToyRobot.CoreLib.Models.GridItems
 {
     /// <summary>
-    /// Abstract base class of a Grid Item
+    /// Abstract base class of a Grid Item.
     /// </summary>
     public abstract partial class GridItemBase : IGridItem
     {
         /// <summary>
-        /// A reference to the TaskGrid parent object
+        /// A reference to the TaskGrid parent object.
         /// </summary>
         protected ITaskGrid _taskGrid;
 
         /// <summary>
-        /// Delegate for Do Commands
+        /// Delegate for Do Commands.
         /// </summary>
         /// <param name="parseCommandResult"></param>
         /// <returns></returns>
@@ -28,12 +28,12 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         public abstract string GRID_ITEM_TYPE_NAME { get; }
 
         /// <summary>
-        /// List of all valid change of direction commands
+        /// List of all valid change of direction commands.
         /// </summary>
         protected List<string> VALID_CHANGE_DIRECTION_COMMANDS = new List<string>() { "LEFT", "RIGHT" };
 
         /// <summary>
-        /// Privately set property for Name
+        /// Privately set property for Name.
         /// </summary>
         public string Name { get; }
 
@@ -43,12 +43,12 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         public List<GridItemState> _validStateHistory { get; set; }
 
         /// <summary>
-        /// Holds the current state during the RunCommand methods
+        /// Holds the current state during the RunCommand methods.
         /// </summary>
         private GridItemState _currentState { get; set; }
 
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         /// <param name="taskGrid">A reference to the TaskGrid parent object</param>
         /// <param name="name">The identifier/name of the grid item</param>
@@ -60,7 +60,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Run/process the command
+        /// Run/process the command.
         /// </summary>
         /// <param name="command"></param>
         /// <returns>GenericResult</returns>
@@ -79,7 +79,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
 
             var canRunCommand = CheckRunCommandRules(parseResult.Command);
 
-            if (!canRunCommand.Success) // Command can't be run, due to a rule
+            if (!canRunCommand.Success) // Command can't be run, due to a rule.
             {
                 result.Comment = canRunCommand.Comment;
                 return result;
@@ -287,7 +287,6 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
                             if (string.IsNullOrEmpty(parameters))
                             {
                                 result.Success = true;
-                                
                             }
                             else
                             {
@@ -311,7 +310,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Calculate the new direction given the passed-in degrees
+        /// Calculate the new direction given the passed-in degrees.
         /// </summary>
         /// <param name="degrees"></param>
         /// <returns></returns>
@@ -349,7 +348,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Gets the last item in the state history list
+        /// Gets the last item in the state history list.
         /// </summary>
         /// <returns></returns>
         public GridItemState GetCurrentState()
@@ -358,7 +357,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Shallow clone the GridItemState
+        /// Shallow clone the GridItemState.
         /// </summary>
         /// <param name="gridItem"></param>
         /// <returns>A deep clone of the item</returns>
@@ -368,7 +367,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Add itemState to the state history list at the end 
+        /// Add itemState to the state history list at the end.
         /// </summary>
         /// <param name="itemState"></param>
         private void AddItemStateToHistory(GridItemState itemState)
@@ -377,7 +376,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Check if a command can be run. Can be overidden
+        /// Check if a command can be run. Can be overidden.
         /// </summary>
         /// <param name="commandType"></param>
         /// <returns>bool</returns>
@@ -390,10 +389,12 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
                     result.Success = true;
                     break;
 
-                default: // All other commands
-
-                    if (_validStateHistory.Count > 0) // Only allow other commands if there is at least one valid command in the state history list
+                default:
+                    // All other commands.
+                    // Only allow other commands if there is at least one valid command in the state history list.
+                    if (_validStateHistory.Count > 0)
                     {
+                        
                         result.Success = true;
                     }
                     else
