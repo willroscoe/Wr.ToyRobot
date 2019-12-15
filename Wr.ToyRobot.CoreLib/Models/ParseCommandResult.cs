@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Wr.ToyRobot.CoreLib.Models
 {
+    /// <summary>
+    /// Holder for the result of parsing a command.
+    /// </summary>
     public class ParseCommandResult
     {
         public bool Success { get; set; }
