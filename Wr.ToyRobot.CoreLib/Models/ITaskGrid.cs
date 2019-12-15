@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Wr.ToyRobot.CoreLib.Models.GridItems;
-
+﻿
 namespace Wr.ToyRobot.CoreLib.Models
 {
     /// <summary>

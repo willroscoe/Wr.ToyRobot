@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using static Wr.ToyRobot.CoreLib.Helpers.CustomAttributes;
 
 namespace Wr.ToyRobot.CoreLib.Models

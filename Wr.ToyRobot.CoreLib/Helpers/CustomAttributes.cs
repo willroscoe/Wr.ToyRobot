@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Wr.ToyRobot.CoreLib.Models;
 
 namespace Wr.ToyRobot.CoreLib.Helpers

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using Wr.ToyRobot.CoreLib.Helpers;
 
 namespace Wr.ToyRobot.CoreLib.Models.GridItems
 {
