@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Wr.ToyRobot.CoreLib.Helpers;
 using Wr.ToyRobot.CoreLib.Models;
 using Wr.ToyRobot.CoreLib.Models.GridItems;
 
 namespace Wr.ToyRobot.CoreLib
 {
-    public class TaskGrid : ITaskGrid
+    /// <summary>
+    /// The main task object
+    /// </summary>
+    public sealed class TaskGrid : ITaskGrid
     {
         /// <summary>
         /// The size of the grid

@@ -360,7 +360,7 @@ namespace Wr.ToyRobot.CoreLib.Models.GridItems
         }
 
         /// <summary>
-        /// Deep clone the GridItemState
+        /// Shallow clone the GridItemState
         /// </summary>
         /// <param name="gridItem"></param>
         /// <returns>A deep clone of the item</returns>

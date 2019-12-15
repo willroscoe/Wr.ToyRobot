@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Wr.ToyRobot.CoreLib.Models
 {
-
+    /// <summary>
+    /// Valid commands
+    /// </summary>
     public enum CommandType
     {
        PLACE,
@@ -12,14 +14,5 @@ namespace Wr.ToyRobot.CoreLib.Models
        LEFT,
        RIGHT,
        REPORT
-    }
-
-    public class CommandHolder
-    {
-        public string Command { get; set; }
-
-        public CommandType CommandType { get; set; }
-
-        public string Message { get; set; }
     }
 }

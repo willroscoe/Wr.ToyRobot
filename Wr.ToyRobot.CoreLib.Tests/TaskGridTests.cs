@@ -7,6 +7,8 @@ namespace Wr.ToyRobot.CoreLib.Tests
     [TestClass]
     public class TaskGridTests
     {
+        private string gridItemTestName => "joe";
+
         [TestMethod]
         public void TaskGrid_Instanciate_ReturnsDefaultGridSize()
         {
@@ -18,7 +20,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         }
 
         [TestMethod]
-        public void TaskGrid_RunCommand_NoGridItemNoCommand_ReturnsFalse()
+        public void TaskGrid_RunCommand_NoGridItemNoCommand_ReturnsSuccessFalse()
         {
             // Arrange
             var taskGrid = new TaskGrid();
@@ -31,7 +33,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         }
 
         [TestMethod]
-        public void TaskGrid_RunCommand_NoGridItemValidCommand_ReturnsFalse()
+        public void TaskGrid_RunCommand_NoGridItemValidCommand_ReturnsSuccessFalse()
         {
             // Arrange
             var taskGrid = new TaskGrid();
@@ -44,20 +46,20 @@ namespace Wr.ToyRobot.CoreLib.Tests
         }
 
         [TestMethod]
-        public void TaskGrid_RunCommand_NoGridItemWithNameValidCommand_ReturnsFalse()
+        public void TaskGrid_RunCommand_NoGridItemWithNameValidCommand_ReturnsSuccessFalse()
         {
             // Arrange
             var taskGrid = new TaskGrid();
 
             // Act
-            var result = taskGrid.RunCommand("mrrobot", "Place 1,1,North");
+            var result = taskGrid.RunCommand(gridItemTestName, "Place 1,1,North");
 
             // Assert
             Assert.IsFalse(result.Success);
         }
 
         [TestMethod]
-        public void TaskGrid_AddGridItem_NullGridItem_ReturnsFalse()
+        public void TaskGrid_AddGridItem_NullGridItem_ReturnsSuccessFalse()
         {
             // Arrange
             var taskGrid = new TaskGrid();
@@ -71,16 +73,44 @@ namespace Wr.ToyRobot.CoreLib.Tests
         }
 
         [TestMethod]
-        public void TaskGrid_AddValidGridItem_ReturnsTrue()
+        public void TaskGrid_AddValidGridItem_ReturnsSuccessTrue()
         {
             // Arrange
             var taskGrid = new TaskGrid();
 
             // Act
-            var result = taskGrid.AddGridItem("mrrobot");
+            var result = taskGrid.AddGridItem(gridItemTestName);
 
             // Assert
             Assert.IsTrue(result.Success);
+        }
+
+        [TestMethod]
+        public void TaskGrid_PlaceItemOutsideGridBoundsX_ReturnsSuccessFalse()
+        {
+            // Arrange
+            var taskGrid = new TaskGrid();
+            taskGrid.AddGridItem(gridItemTestName);
+
+            // Act
+            var result = taskGrid.RunCommand(gridItemTestName, "Place 5,1,North");
+
+            // Assert
+            Assert.IsFalse(result.Success);
+        }
+
+        [TestMethod]
+        public void TaskGrid_PlaceItemOutsideGridBoundsY_ReturnsSuccessFalse()
+        {
+            // Arrange
+            var taskGrid = new TaskGrid();
+            taskGrid.AddGridItem(gridItemTestName);
+
+            // Act
+            var result = taskGrid.RunCommand(gridItemTestName, "Place 1,5,North");
+
+            // Assert
+            Assert.IsFalse(result.Success);
         }
 
     }
