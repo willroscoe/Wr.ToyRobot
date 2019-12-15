@@ -6,27 +6,27 @@ namespace Wr.ToyRobot.CoreLib.Models
 {
  
     /// <summary>
-    /// An object to hold the grid item 'state' on the board. i.e. location, facing which direction etc
+    /// An object to hold the grid item 'state' on the board. i.e. location, facing which direction etc.
     /// </summary>
     public partial class GridItemState : ICloneable
     {
         /// <summary>
-        /// The position of the item on the grid
+        /// The position of the item on the grid.
         /// </summary>
         public Coordinates Coords { get; set; }
 
         /// <summary>
-        /// The direction the item is facing
+        /// The direction the item is facing.
         /// </summary>
         public FacingDirection Facing { get; set; }
         
         /// <summary>
-        /// Any relevant comments about this state
+        /// Any relevant comments about this state.
         /// </summary>
         public string Comment { get; set; }
 
         /// <summary>
-        /// Return the coordinates for the next move
+        /// Return the coordinates for the next move.
         /// </summary>
         /// <returns>Coordinates</returns>
         public Coordinates GetCoordinatesForNextMove(int numberOfGridSquaresToMove = 1)
@@ -40,7 +40,7 @@ namespace Wr.ToyRobot.CoreLib.Models
         }
 
         /// <summary>
-        /// Shallow Clone the instance of this object
+        /// Shallow Clone the instance of this object.
         /// </summary>
         /// <returns>object</returns>
         public object Clone()
@@ -49,7 +49,7 @@ namespace Wr.ToyRobot.CoreLib.Models
         }
 
         /// <summary>
-        /// Overrides the ToString() method to output a custom string of the object data
+        /// Overrides the ToString() method to output a custom string of the object data.
         /// </summary>
         /// <returns>X,Y,Facing</returns>
         public override string ToString()
