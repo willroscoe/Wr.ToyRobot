@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Wr.ToyRobot.CoreLib.Models;
 using Wr.ToyRobot.CoreLib.Models.GridItems;
 
 namespace Wr.ToyRobot.CoreLib.Tests
@@ -8,6 +7,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
     public class TaskGridTests
     {
         private string gridItemTestName => "joe";
+
 
         [TestMethod]
         public void TaskGrid_Instanciate_ReturnsDefaultGridSize()
@@ -63,10 +63,9 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(null);
 
             // Act
-            var result = taskGrid.AddGridItem(null);
+            var result = taskGrid.AddGridItem<Robot>(null);
 
             // Assert
             Assert.IsFalse(result.Success);
@@ -79,7 +78,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
             var taskGrid = new TaskGrid();
 
             // Act
-            var result = taskGrid.AddGridItem(gridItemTestName);
+            var result = taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Assert
             Assert.IsTrue(result.Success);
@@ -90,7 +89,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, "Place 5,1,North");
@@ -104,7 +103,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, "Place 1,5,North");

@@ -20,7 +20,7 @@ namespace Wr.ToyRobot.CoreLib
         /// List of grid items present on the grid.
         /// </summary>
         public List<IGridItem> GridItems { get; private set; }
-        
+
 
         /// <summary>
         /// Constructor.
@@ -62,14 +62,14 @@ namespace Wr.ToyRobot.CoreLib
             return result;
         }
 
-  
+
         /// <summary>
         /// Add a newGridItem to the GridItems list, but making sure it doesn't exist yet.
         /// </summary>
         /// <param name="name">The name/identifier of the grid item</param>
         /// <param name="itemTypeName">The name of the item type, which corresponds to the GRID_ITEM_TYPE_NAME property i.e. Robot</param>
         /// <returns></returns>
-        public GenericResult AddGridItem(string name, string itemTypeName = "Robot")
+        public GenericResult AddGridItem<T>(string name) where T : GridItemBase
         {
             GenericResult result = new GenericResult();
 
@@ -86,18 +86,18 @@ namespace Wr.ToyRobot.CoreLib
                 return result;
             }
 
-            // TODO: Use reflection to instantiate the required GridItem type.
-            switch (itemTypeName)
+            // Create instance of the required GridItem type.
+            var gridItemConstructorParameters = new object[] { this, name };
+            var createdInstanceOfGridItem = (IGridItem)Activator.CreateInstance(typeof(T), gridItemConstructorParameters);
+
+            if (createdInstanceOfGridItem == null)
             {
-                case "Robot":
-                    var newGridItem = new Robot(this, name);
-                    GridItems.Add(newGridItem);
-                    result.Success = true;
-                    break;
-                default:
-                    result.Comment = "Not a valid itemTypeName";
-                    break;
+                result.Comment = "Not a valid grid item";
+                return result;
             }
+
+            GridItems.Add(createdInstanceOfGridItem);
+            result.Success = true;
 
             return result;
         }
@@ -117,13 +117,13 @@ namespace Wr.ToyRobot.CoreLib
 
             if (coordinates.Y >= 0 && coordinates.Y < GridSize.Y)
                 yIsInBounds = true;
-            
+
             return (xIsInBounds && yIsInBounds) ? true : false;
         }
 
-        
+
         /// <summary>
-        /// Get a grid item with the name.
+        /// Get a grid item with the name. Grid item names are unique.
         /// </summary>
         /// <param name="name"></param>
         /// <returns>The found Grid Item or null</returns>

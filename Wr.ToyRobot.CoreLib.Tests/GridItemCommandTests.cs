@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Wr.ToyRobot.CoreLib.Models.GridItems;
 
 namespace Wr.ToyRobot.CoreLib.Tests
 {
@@ -22,7 +23,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, command);
@@ -36,7 +37,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, "Place");
@@ -50,7 +51,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, "Place 1,NORTH");
@@ -65,7 +66,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
 
             // Act
             var result = taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
@@ -79,7 +80,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
 
             // Act
@@ -94,7 +95,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
 
             // Act
@@ -109,7 +110,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
 
             // Act
@@ -124,7 +125,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
             taskGrid.RunCommand(gridItemTestName, "Left");
             // Act
@@ -139,7 +140,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
 
             // Act
@@ -154,7 +155,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,EAST");
             taskGrid.RunCommand(gridItemTestName, "Right");
             // Act
@@ -173,7 +174,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, $"Place 1,1,{direction}");
             taskGrid.RunCommand(gridItemTestName, "Move");
             // Act
@@ -189,7 +190,7 @@ namespace Wr.ToyRobot.CoreLib.Tests
         {
             // Arrange
             var taskGrid = new TaskGrid();
-            taskGrid.AddGridItem(gridItemTestName);
+            taskGrid.AddGridItem<Robot>(gridItemTestName);
             taskGrid.RunCommand(gridItemTestName, "Place 1,1,WEST");
             taskGrid.RunCommand(gridItemTestName, "Move");
             // Act
