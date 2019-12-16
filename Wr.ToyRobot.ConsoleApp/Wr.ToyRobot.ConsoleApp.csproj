@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Wr.ToyRobot.CoreLib\Wr.ToyRobot.CoreLib.csproj" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(OutDir) == bin\Release\netcoreapp3.1\win-x64\ (&#xD;&#xA;Powershell.exe  -ExecutionPolicy Unrestricted -file &quot;$(SolutionDir)$(ProjectName)\PostBuildProcessInputScripts.ps1&quot;&#xD;&#xA;)" />
-  </Target>
-
 </Project>
