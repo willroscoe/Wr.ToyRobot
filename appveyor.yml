@@ -62,7 +62,7 @@ artifacts:
 - path: linux-x64.zip
   name: linux-x64
 
- deploy:
+deploy:
    # GitHub Deployment for releases
   - provider: GitHub
     repository: willroscoe/Wr.ToyRobot
