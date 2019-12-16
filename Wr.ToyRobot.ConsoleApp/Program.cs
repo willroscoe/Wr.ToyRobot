@@ -15,17 +15,26 @@ namespace Wr.ToyRobot.ConsoleApp
         /// </summary>
         private static string gridItemName => "marvin";
 
+        // Console specific app commands.
+        private static string CMD_SHOW_COMMENTS => "show comments";
+        private static string CMD_HIDE_COMMENTS => "hide comments";
+        private static string CMD_SAVE_OUTPUTS => "save outputs";
+        private static string CMD_EXIT => "exit";
+
         /// <summary>
         /// General instructions.
         /// </summary>
-        private static string instructions => "Type a command, and then press Enter. Type 'show comments' to display any comments that the commands return. Type 'save outputs' to save the outputs to a file. Type 'exit' to quit.";
+        private static string instructions => $"Type a command, and then press Enter. Type '{CMD_SHOW_COMMENTS}' to display any comments that the commands return. Type '{CMD_SAVE_OUTPUTS}' to save the outputs to a file. Type '{CMD_EXIT}' to quit.";
 
         /// <summary>
-        /// Valid commands. IDEA: Dynamically get these from the TaskGrid object?
+        /// Valid commands. IDEA: Dynamically get these from the TaskGrid object.
         /// </summary>
         private static string validCommands => "Possible commands are: Place X,Y,[NORTH|SOUTH|EAST|WEST]; LEFT; RIGHT; MOVE; REPORT";
 
-
+        /// <summary>
+        /// App entry method
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             List<string> commandsFromFile = new List<string>();
@@ -75,6 +84,9 @@ namespace Wr.ToyRobot.ConsoleApp
             bool exitApp = false;
             bool showComments = false;
 
+            // Keep track of if an input file was being used.
+            bool wasUsingFile = IsInputFromFile ? true : false;
+
             while (!exitApp)
             {
                 // Set input text colour to white.
@@ -89,7 +101,8 @@ namespace Wr.ToyRobot.ConsoleApp
                     {
                         // No commands left to process, so allow standard input now.
                         IsInputFromFile = false;
-                        Console.WriteLine("You can type additional commands if you want, or type 'exit' to exit.");
+                        wasUsingFile = true;
+                        Console.WriteLine($"You can type additional commands if you want, or type '{CMD_EXIT}' to exit.");
                         continue;
                     }
 
@@ -104,37 +117,42 @@ namespace Wr.ToyRobot.ConsoleApp
                     inputtedCommand = Console.ReadLine();
                 }
 
-                // Store all outputs.
-                outputLog.AppendLine(inputtedCommand);
-
                 if (string.IsNullOrEmpty(inputtedCommand))
                 {
+                    if (wasUsingFile) // No inputtedCommand after an input file, so break out, otherwise any batch scripts running this app might get stuck in an infinite loop
+                    {
+                        break;
+                    }
+
                     // Show output in red.
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(instructions);
                     continue;
                 }
-                else if (inputtedCommand.Trim().ToLower() == "show comments")
+                else if (inputtedCommand.Trim().ToLower() == CMD_SHOW_COMMENTS)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Type 'hide comments' to stop showing comments.");
+                    Console.WriteLine($"Type '{CMD_HIDE_COMMENTS}' to stop showing comments.");
                     showComments = true;
                     continue;
                 }
-                else if (inputtedCommand.Trim().ToLower() == "hide comments")
+                else if (inputtedCommand.Trim().ToLower() == CMD_HIDE_COMMENTS)
                 {
                     showComments = false;
                     continue;
                 }
-                else if (inputtedCommand.Trim().ToLower() == "save outputs")
+                else if (inputtedCommand.Trim().ToLower() == CMD_SAVE_OUTPUTS)
                 {
                     IsOutputToFile = true;
                     continue;
                 }
-                else if (inputtedCommand.Trim().ToLower() == "exit")
+                else if (inputtedCommand.Trim().ToLower() == CMD_EXIT)
                 {
                     break;
                 }
+
+                // Store all outputs.
+                outputLog.AppendLine(inputtedCommand);
 
                 var commandResult = gridTask.RunCommand(gridItemName, inputtedCommand);
 

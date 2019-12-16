@@ -1,0 +1,27 @@
+move
+Comment: Can't run that command yet. You must first use the 'Place' command.
+report
+Comment: Can't run that command yet. You must first use the 'Place' command.
+place 0, 0, NORTH
+left
+report
+Output: 0,0,WEST
+place 1,2,WEST
+move
+move
+Comment: That move would position the Robot off the grid. Try another command. Current position: 0,2,WEST
+move
+Comment: That move would position the Robot off the grid. Try another command. Current position: 0,2,WEST
+move
+Comment: That move would position the Robot off the grid. Try another command. Current position: 0,2,WEST
+report
+Output: 0,2,WEST
+place 6,3,NORTH
+Comment: That command would position the Robot off the grid. Try again.
+report
+Output: 0,2,WEST
+right
+right
+move
+report
+Output: 1,2,EAST

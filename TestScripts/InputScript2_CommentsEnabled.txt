@@ -1,0 +1,18 @@
+show comments
+move
+report
+place 0, 0, NORTH
+left
+report
+place 1,2,WEST
+move
+move
+move
+move
+report
+place 6,3,NORTH
+report
+right
+right
+move
+report

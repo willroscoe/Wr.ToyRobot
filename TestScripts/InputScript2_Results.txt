@@ -1,0 +1,21 @@
+move
+report
+place 0, 0, NORTH
+left
+report
+Output: 0,0,WEST
+place 1,2,WEST
+move
+move
+move
+move
+report
+Output: 0,2,WEST
+place 6,3,NORTH
+report
+Output: 0,2,WEST
+right
+right
+move
+report
+Output: 1,2,EAST
