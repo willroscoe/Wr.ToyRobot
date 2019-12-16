@@ -8,6 +8,9 @@ using Wr.ToyRobot.CoreLib.Models.GridItems;
 
 namespace Wr.ToyRobot.ConsoleApp
 {
+    /// <summary>
+    /// Main class
+    /// </summary>
     class Program
     {
         /// <summary>
