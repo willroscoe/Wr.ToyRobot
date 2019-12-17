@@ -16,7 +16,7 @@ namespace Wr.ToyRobot.ConsoleApp
         /// <summary>
         /// A task item name to use.
         /// </summary>
-        private static string gridItemName => "marvin";
+        private static string gridItemName => "joe";
 
         // Console specific app commands.
         private static string CMD_SHOW_COMMENTS => "show comments";
@@ -87,9 +87,6 @@ namespace Wr.ToyRobot.ConsoleApp
             bool exitApp = false;
             bool showComments = false;
 
-            // Keep track of if an input file was being used.
-            bool wasUsingFile = IsInputFromFile ? true : false;
-
             while (!exitApp)
             {
                 // Set input text colour to white.
@@ -102,11 +99,8 @@ namespace Wr.ToyRobot.ConsoleApp
                     inputtedCommand = commandsFromFile.FirstOrDefault();
                     if (string.IsNullOrEmpty(inputtedCommand))
                     {
-                        // No commands left to process, so allow standard input now.
-                        IsInputFromFile = false;
-                        wasUsingFile = true;
-                        Console.WriteLine($"You can type additional commands if you want, or type '{CMD_EXIT}' to exit.");
-                        continue;
+                        // No commands left to process, so break out.
+                        break;
                     }
 
                     // Remove this command from the list
@@ -122,11 +116,6 @@ namespace Wr.ToyRobot.ConsoleApp
 
                 if (string.IsNullOrEmpty(inputtedCommand))
                 {
-                    if (wasUsingFile) // No inputtedCommand after an input file, so break out, otherwise any batch scripts running this app might get stuck in an infinite loop
-                    {
-                        break;
-                    }
-
                     // Show output in red.
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(instructions);
