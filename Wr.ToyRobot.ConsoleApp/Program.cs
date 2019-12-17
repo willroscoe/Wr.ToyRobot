@@ -55,12 +55,14 @@ namespace Wr.ToyRobot.ConsoleApp
             gridTask.AddGridItem<Robot>(gridItemName);
 
             // Display title as the C# console toy robot app.
-            Console.WriteLine("Welcome to the Toy Robot Task\n");
-            Console.WriteLine("-----------------------------\n");
+            Console.WriteLine("Welcome to the Toy Robot Task");
+            Console.WriteLine("-----------------------------");
 
             // Ask the user to type the first number.
             Console.WriteLine(instructions);
+            Console.WriteLine();
             Console.WriteLine(validCommands);
+            Console.WriteLine();
 
             if (args.Length > 0)
             {
