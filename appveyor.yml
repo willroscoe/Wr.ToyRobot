@@ -42,24 +42,24 @@ build_script:
 
     dotnet restore
 
-    dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r win-x64 -c Release --self-contained -o artifacts/win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true
+    dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r win-x64 -c Release --self-contained -o artifacts/win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true
 
-    7z a win-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\win-x64\*.*
+    7z a toyrobot-%APPVEYOR_BUILD_VERSION%-win-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\win-x64\*.*
 
-    dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r osx-x64 -c Release --self-contained -o artifacts/osx-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true
+    dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r osx-x64 -c Release --self-contained -o artifacts/osx-x64 /p:PublishTrimmed=true
 
-    7z a osx-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\osx-x64\*.*
+    7z a toyrobot-%APPVEYOR_BUILD_VERSION%-osx-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\osx-x64\*.*
 
     dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r linux-x64 -c Release --self-contained -o artifacts/linux-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true
 
-    7z a linux-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\linux-x64\*.*
+    7z a toyrobot-%APPVEYOR_BUILD_VERSION%-linux-x64.zip %APPVEYOR_BUILD_FOLDER%\artifacts\linux-x64\*.*
 
 artifacts:
-- path: win-x64.zip
+- path: toyrobot-$(appveyor_build_version)-win-x64.zip
   name: win-x64
-- path: osx-x64.zip
+- path: toyrobot-$(appveyor_build_version)-osx-x64.zip
   name: osx-x64
-- path: linux-x64.zip
+- path: toyrobot-$(appveyor_build_version)-linux-x64.zip
   name: linux-x64
 
 deploy:
@@ -68,7 +68,7 @@ deploy:
     repository: willroscoe/Wr.ToyRobot
     tag: $(appveyor_build_version)
     release: ToyRobot $(appveyor_build_version)
-    description: ''
+    description: 'Initial release'
     auth_token:
       secure: 9JsyY72D34T18UiX5d44wy+AmN+aHYfRGdMkwCTCVpB95mMn1tWQQJ5win8NqrEB
     artifact: /.*\.zip/         # upload all Zip packages to release assets
