@@ -63,8 +63,8 @@ When run this will generate a results file with a _Results.txt suffix.
 [TESTSCRIPTSLINK]: https://github.com/willroscoe/Wr.ToyRobot/tree/master/TestScripts
 
 ## Extending
-- It is possible to extend the type and number of grid item's (i.e. Robots) available to add to the grid. They just need to inherit from the [`GridItemBase`][GRIDITEMBASELINK] class. Note: This functionality has not been tested.
-- The grid can be any size, but for the purposes of this task the grid is set to 5 x 5 in the console application.
+The project has been built to allow the extending of some functionality. For example, it is possible to extend the type and number of grid item's (i.e. Robots) available to add to the grid. They just need to inherit from the [`GridItemBase`][GRIDITEMBASELINK] class. Note: This functionality has not been tested.
+ in mind. The grid can be initialised to be any size, but for the purposes of this task the grid is set to 5 x 5 in the console application.
 
 [GRIDITEMBASELINK]: https://github.com/willroscoe/Wr.ToyRobot/blob/master/Wr.ToyRobot.CoreLib/Models/GridItems/GridItemBase.cs
 
