@@ -66,9 +66,9 @@ namespace Wr.ToyRobot.CoreLib
         /// <summary>
         /// Add a newGridItem to the GridItems list, but making sure it doesn't exist yet.
         /// </summary>
-        /// <param name="name">The name/identifier of the grid item</param>
-        /// <param name="itemTypeName">The name of the item type, which corresponds to the GRID_ITEM_TYPE_NAME property i.e. Robot</param>
-        /// <returns></returns>
+        /// <typeparam name="T">A Grid Item type inheriting from GridItemBase</typeparam>
+        /// <param name="name">The grid item name/identifier</param>
+        /// <returns>GenericResult</returns>
         public GenericResult AddGridItem<T>(string name) where T : GridItemBase
         {
             GenericResult result = new GenericResult();
