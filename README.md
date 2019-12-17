@@ -31,11 +31,11 @@ Either, use one of the latest pre-built packages from the [**Release**][RELEASEL
 
 ...or, build the solution from Visual Studio, or the dotnet cli, by first cloning this repo. Note: You will need the [.NET Core 3.1 SDK][DOTNETCOREDOWNLOAD] installed in order to build this solution.
 
-    Windows: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r win-x64 -c Release --self-contained -o artifacts/win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true`
+Windows: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r win-x64 -c Release --self-contained -o artifacts/win-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true /p:PublishReadyToRun=true`
 
-    MacOs: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r osx-x64 -c Release --self-contained -o artifacts/osx-x64 /p:PublishTrimmed=true`
+MacOs: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r osx-x64 -c Release --self-contained -o artifacts/osx-x64 /p:PublishTrimmed=true`
 
-    Linux: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r linux-x64 -c Release --self-contained -o artifacts/linux-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true`
+Linux: `dotnet publish ./Wr.ToyRobot.ConsoleApp/Wr.ToyRobot.ConsoleApp.csproj -f netcoreapp3.1 -r linux-x64 -c Release --self-contained -o artifacts/linux-x64 /p:PublishSingleFile=true /p:PublishTrimmed=true`
 
 ### Then running...
 **On Windows:**
@@ -60,13 +60,13 @@ To run the console app with a test script, run the console app from the command 
 
 When run this will generate a results file with a _Results.txt suffix.
 
-[TESTSCRIPTSLINK]: https://github.com/willroscoe/Wr.ToyRobot/TestScripts
+[TESTSCRIPTSLINK]: https://github.com/willroscoe/Wr.ToyRobot/tree/master/TestScripts
 
 ## Extending
 - It is possible to extend the type and number of grid item's (i.e. Robots) available to add to the grid. They just need to inherit from the [`GridItemBase`][GRIDITEMBASELINK] class. Note: This functionality has not been tested.
 - The grid can be any size, but for the purposes of this task the grid is set to 5 x 5 in the console application.
 
-[GRIDITEMBASELINK]: https://github.com/willroscoe/Wr.ToyRobot/Wr.ToyRobot.CoreLib/Models/GridItems/GridItemBase.cs
+[GRIDITEMBASELINK]: https://github.com/willroscoe/Wr.ToyRobot/blob/master/Wr.ToyRobot.CoreLib/Models/GridItems/GridItemBase.cs
 
 ## Version history
 - 1.0.0
