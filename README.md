@@ -11,9 +11,8 @@
 
 This .NET Core 3.1 cross-platform solution consists of a class library, which holds all the task logic, and a console application, which acts as an example interactive interface to the class library.
 
-The console application can be run interactively, or multiple input commands can be supplied in a text file (see [Input Scripts][INPUTSCRIPTSLINK] section). The application automatically creates a 5 x 5 grid. Just start typing commands to control the robot.
+The console application can be run interactively, or multiple input commands can be supplied in a text file (see <a href="#InputScripts">Input Scripts</a> section). The application automatically creates a 5 x 5 grid. Just start typing commands to control the robot.
 
-[INPUTSCRIPTSLINK]: https://github.com/willroscoe/Wr.ToyRobot/blob/master/Wr.ToyRobot.CoreLib/Models/GridItems/GridItemBase.cs
 Test scripts (inputs & outputs) for the latest build of the application can be found in the [TestScripts][TESTSCRIPTSLINK] folder. The results files can be automatically generated after a Release build by running the `Wr.ToyRobot.ConsoleApp/PostBuildProcessInputScripts.bat` script (only for Windows), assuming you have cloned the repo to your local machine. This script deletes any results files in the TestScripts folder and processes each .txt file in the folder.
 
 ## Additional commands
